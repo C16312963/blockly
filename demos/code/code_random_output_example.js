@@ -1,3 +1,10 @@
+/*
+ * Modified by Kevin Stroughair 
+ * Added Constructworkspace function, lines 161 - 275
+ * which is then executed on line 587
+*/
+
+
 /**
  * @license
  * Copyright 2012 Google LLC
@@ -151,7 +158,7 @@ Code.loadBlocks = function(defaultXml) {
   }
 };
 
-Code.constructWorkspace = function() {
+Code.constructWorkspace = function() { //Causes this structure of blocks to be added to the workspace when the HTML is run
   var structure = '<xml>'
   +'<block type="alexa_structure" id="f{n~Jq?a_qMP1R8:W~+@" x="10" y="10">'
     +'<statement name="ALEXA_CODE">'
