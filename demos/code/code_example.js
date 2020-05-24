@@ -1,3 +1,12 @@
+/*
+ * Modified by Kevin Stroughair 
+ * Added Constructworkspace function, lines 163 - 182
+ * which is then executed on line 494
+ * and a save button on lines 595 - 598
+ * which is then executed on line 503
+*/ 
+
+
 /**
  * @license
  * Copyright 2012 Google LLC
@@ -151,7 +160,7 @@ Code.loadBlocks = function(defaultXml) {
   }
 };
 
-Code.constructWorkspace = function() {
+Code.constructWorkspace = function() { //Causes this structure of blocks to be added to the workspace when the HTML is run
   var structure = '<xml>'
   +'<block type="alexa_structure">'
     +'<statement name="ALEXA_CODE">'
@@ -583,19 +592,10 @@ Code.initLanguage = function() {
   document.getElementById('trashButton').title = MSG['trashTooltip'];
 };
 
-Code.savebutton = function() {
-  /*var savedXml = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
-  localStorage.setItem(document.getElementById("tooltip").value,Blockly.Xml.domToText(savedXml));
-  console.log("backed up");
-  Blockly.mainWorkspace.clear();*/
-
+Code.savebutton = function() { //Takes the block structures xml and logs it to the console so that it can be used when designing a template of that structure
   var xmlDom = Blockly.Xml.workspaceToDom(Blockly.mainWorkspace);
   var xmlText = Blockly.Xml.domToPrettyText(xmlDom);
   console.log(xmlText);
-  //var xml = Blockly.Xml.workspaceToDom(Code.workspace);
-  //console.log(Blockly.Xml.domToText(xml));
-  //localStorage.setItem("blockly.xml", xmlText);
-  //localStorage.clear();
 };
 
 /**
